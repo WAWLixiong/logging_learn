@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "disable_existing_loggeres": true,
+  "formatters": {
+    "color": {
+      "()": "log_utils.formatters.ColorFormatter"
+    },
+    "ordinary": {
+      "()": "log_utils.formatters.OrdinaryFormatter"
+    }
+  },
+  "filters": {
+    "filter_normal": {
+      "()": "log_utils.filters.NormalFilter"
+    },
+    "filter_err": {
+      "()": "log_utils.filters.ErrorFilter"
+    }
+  },
+  "handlers": {
+    "console": {
+      "level": 10,
+      "class": "logging.StreamHandler",
+      "formatter": "color"
+    },
+    "huawei_nm_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/huawei/huawei.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_normal"
+      ]
+    },
+    "huawei_err_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/huawei/huawei.err.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_err"
+      ]
+    },
+    "huawei_A_nm_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/A/A.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_normal"
+      ]
+    },
+    "huawei_A_err_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/A/A.err.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_err"
+      ]
+    },
+    "huawei_B_nm_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/B/B.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_normal"
+      ]
+    },
+    "huawei_B_err_hdl": {
+      "level": 20,
+      "class": "log_utils.handlers.MyRotatingFileHandler",
+      "mode": "a",
+      "formatter": "ordinary",
+      "filename": "log/B/B.err.log",
+      "encoding": "utf-8",
+      "filters": [
+        "filter_err"
+      ]
+    }
+  },
+  "loggers": {
+    "huawei": {
+      "level": 10,
+      "propagate": false,
+      "handlers": [
+        "console",
+        "huawei_nm_hdl",
+        "huawei_err_hdl"
+      ]
+    },
+    "huawei.A": {
+      "level": 10,
+      "propagate": true,
+      "handlers": [
+        "console",
+        "huawei_A_nm_hdl",
+        "huawei_A_err_hdl"
+      ]
+    },
+    "huawei.B": {
+      "level": 10,
+      "propagate": false,
+      "handlers": [
+        "console",
+        "huawei_B_nm_hdl",
+        "huawei_B_err_hdl"
+      ]
+    }
+  }
+}
