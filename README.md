@@ -1,0 +1,3 @@
+- 阅读lab下边的测试, 以拟人的场景对logging模块各对象的level有个认识
+- 阅读`main.py`，学习handler,formatter,filter，学习配置文件结构
+- 增加LoggerFactory, LogMixin方便日常代码开发
