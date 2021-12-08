@@ -17,6 +17,10 @@ class HuaWei(LogMixin):
         self.info("huawei is run")
         self.warning("huawei is warning")
         try:
+            1 / 0
+        except Exception as e:
+            self.exception("huawei is error", e)
+        try:
             raise MyException()
         except MyException:
             self.error("huawei")
